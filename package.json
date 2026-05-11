@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node bot.js"
-  },
+  "start": "node bot.js",
+  "postinstall": "playwright install chromium"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
