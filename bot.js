@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer');
+const { chromium } = require('playwright');
 const TelegramBot = require('node-telegram-bot-api');
 
 const token = '8794048355:AAGnyWIKoJjW5GCXMuKkcoZi9qe8PlQgQRw';
@@ -12,13 +12,8 @@ async function checkAvailability() {
 
     console.log("Checking...");
 
-    const browser = await puppeteer.launch({
-    headless: true,
-    executablePath: '/usr/bin/google-chrome-stable',
-    args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox'
-    ]
+    const browser = await chromium.launch({
+    headless: true
 });
 
     const page = await browser.newPage();
