@@ -13,8 +13,13 @@ async function checkAvailability() {
     console.log("Checking...");
 
     const browser = await puppeteer.launch({
-        headless: true
-    });
+    headless: true,
+    executablePath: '/usr/bin/google-chrome-stable',
+    args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox'
+    ]
+});
 
     const page = await browser.newPage();
 
